@@ -11,12 +11,7 @@ extension FragmentedMP4Description {
         }
         public let resolution: (width: UInt, height: UInt)
         public let peakFrameRate: Double
-        public let duration: UInt
-        public let timescale: UInt
-
-        public var durationInSeconds: Double {
-            return Double(duration)/Double(timescale)
-        }
+        public let duration: Double
 
         public init(peakBitRate: UInt,
                     averageBitRate: UInt,
@@ -26,8 +21,7 @@ extension FragmentedMP4Description {
                     videoCodec: String,
                     resolution: (width: UInt, height: UInt),
                     peakFrameRate: Double,
-                    duration: UInt,
-                    timescale: UInt) {
+                    duration: Double) {
             self.peakBitRate = peakBitRate
             self.averageBitRate = averageBitRate
             self.iFramePeakBitRate = iFramePeakBitRate
@@ -37,13 +31,12 @@ extension FragmentedMP4Description {
             self.resolution = resolution
             self.peakFrameRate = peakFrameRate
             self.duration = duration
-            self.timescale = timescale
         }
     }
 }
 
 extension FragmentedMP4Description.MediaInfo: CustomStringConvertible {
     public var description: String {
-        return "MediaInfo(peakBitRate: \(peakBitRate), averageBitRate: \(averageBitRate), iFramePeakBitRate: \(iFramePeakBitRate), iFrameAverageBitRate: \(iFrameAverageBitRate), codecs: \(codecs), resolution: \(resolution), peakFrameRate: \(peakFrameRate), duration: \(durationInSeconds)"
+        return "MediaInfo(peakBitRate: \(peakBitRate), averageBitRate: \(averageBitRate), iFramePeakBitRate: \(iFramePeakBitRate), iFrameAverageBitRate: \(iFrameAverageBitRate), codecs: \(codecs), resolution: \(resolution), peakFrameRate: \(peakFrameRate), duration: \(duration)"
     }
 }
