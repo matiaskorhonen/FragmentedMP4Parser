@@ -46,7 +46,9 @@ class FragmentedMP4DescriptionTests: XCTestCase {
                                                            audioCodec: "mp4a",
                                                            videoCodec: "avc1",
                                                            resolution: (width: UInt(1920), height: UInt(1080)),
-                                                           peakFrameRate: 29)
+                                                           peakFrameRate: 29,
+                                                           duration: 20_000,
+                                                           timescale: 1_000)
 
         return FragmentedMP4Description(fileInfo: fileInfo,
                                         mediaInfo: mediaInfo,
