@@ -4,15 +4,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "FragmentedMP4Parser",
-    products: [
-      .library(name: "FragmentedMP4Parser", targets: ["FragmentedMP4Parser"]),
-    ],
-    dependencies: [
-      .package(url: "../FragmentedMP4Description", .branch("master"))
-    ],
-    targets: [
-        .target(name: "FragmentedMP4Parser", dependencies: ["FragmentedMP4Description"]),
-        .testTarget(name: "FragmentedMP4ParserTests", dependencies: ["FragmentedMP4Parser"])
-    ]
+  name: "FragmentedMP4Parser",
+  products: [
+    .library(name: "FragmentedMP4Parser", targets: ["FragmentedMP4Parser"]),
+    .library(name: "FragmentedMP4Description", targets: ["FragmentedMP4Description"]),
+  ],
+  dependencies: [],
+  targets: [
+    .target(name: "FragmentedMP4Description", dependencies: []),
+    .target(name: "FragmentedMP4Parser", dependencies: ["FragmentedMP4Description"]),
+    .testTarget(
+      name: "FragmentedMP4ParserTests", dependencies: ["FragmentedMP4Parser"]),
+    .testTarget(name: "FragmentedMP4DescriptionTests", dependencies: ["FragmentedMP4Description"]),
+  ]
 )

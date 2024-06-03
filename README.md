@@ -4,6 +4,12 @@ Reads the informational data in a fragmented MPEG-4 (fMP4) file. The information
 
 This parser is tested with fMP4 files produced from the `mediafilesegmenter` utility included with Apple’s HTTP Live Streaming Tools.
 
+## FragmentedMP4Description
+
+A container class that stores descriptive information of a fragmented MPEG-4 (fMP4) file. The container includes information that is relevant to generating HTTP Live Streaming (HLS) playlists.
+
+This module was built to to store data provided by the [FragmentedMP4Parser](https://github.com/sbader/FragmentedMP4Parser) module, but can also be used as a generic container class.
+
 ## Installation
 
 To install the package add the following line to the `Package.swift` dependencies.
