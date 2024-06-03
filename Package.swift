@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -14,7 +14,14 @@ let package = Package(
     .target(name: "FragmentedMP4Description", dependencies: []),
     .target(name: "FragmentedMP4Parser", dependencies: ["FragmentedMP4Description"]),
     .testTarget(
-      name: "FragmentedMP4ParserTests", dependencies: ["FragmentedMP4Parser"]),
+      name: "FragmentedMP4ParserTests",
+      dependencies: ["FragmentedMP4Parser"],
+      resources: [
+        .copy("Resources/sample_video_fragmented_hevc.mp4"),
+        .copy("Resources/sample_video_fragmented.mp4"),
+        .copy("Resources/sample_video_non_fragmented_hevc.mp4"),
+        .copy("Resources/sample_video_non_fragmented.mp4"),
+      ]),
     .testTarget(name: "FragmentedMP4DescriptionTests", dependencies: ["FragmentedMP4Description"]),
   ]
 )
